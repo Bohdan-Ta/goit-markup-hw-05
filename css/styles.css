@@ -77,8 +77,8 @@ body {
 
 /*========== HEDER===================*/
 .section-nav-site {
-    padding-top: 24px;
-    padding-bottom: 24px;
+    /* padding-top: 24px;
+    padding-bottom: 24px; */
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #ececec;
@@ -129,9 +129,12 @@ body {
 }
 
 .site-nav .link {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    color: var(--text-item)
+    position: relative;
+    display: block;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    color: var(--text-item);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link.current {
@@ -144,11 +147,14 @@ body {
 }
 
 .contacts .link {
+    padding-top: 32px;
+    padding-bottom: 32px;
     color: var(--primary-text-color);
     text-decoration: none;
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: 0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts .link:hover,
@@ -175,7 +181,18 @@ body {
     fill: currentColor;
 }
 
+/*blue-line-bottom link*/
 
+.current::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    height: 4px;
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+    background-color: var(--second-color-link);
+}
 
 /*====END панель навигации====*/
 /*========== END HEDER===================*/
@@ -235,6 +252,7 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     cursor: pointer;
+    transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover {
@@ -277,6 +295,7 @@ body {
     content: "";
     width: 270px;
     height: 120px;
+    border-radius: 4px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -333,6 +352,26 @@ body {
 
 .work-img:not(:last-child) {
     margin-right: 30px
+}
+
+.work-img {
+    position: relative;
+}
+
+.text-img {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    background: rgba(47, 48, 58, 0.8);
+
+
+    text-transform: uppercase;
+    text-align: center;
+    padding: 27px 0px;
+    font-weight: bold;
+    line-height: 1.14;
+    font-style: normal;
+    color: var(--background-color);
 }
 
 /*====end section what are we doing====*/
@@ -399,6 +438,7 @@ body {
     height: 44px;
     background-color: var(--background-color);
     border-radius: 50%;
+    transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list-item:hover,
@@ -416,6 +456,7 @@ body {
     width: 20px;
     height: 20px;
     fill: var(--color-social-icon);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -441,6 +482,7 @@ body {
     border: 1px solid #AFB1B8;
     border-radius: 4px;
     cursor: pointer;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-list-icon {
@@ -448,6 +490,7 @@ body {
     width: 160px;
     height: 60px;
     fill: var(--color-social-icon);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-list-item:hover,
@@ -487,6 +530,7 @@ address {
     text-decoration: none;
     line-height: 1.7;
     font-style: normal;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .link-google:hover,
@@ -500,6 +544,7 @@ address {
     text-decoration: none;
     line-height: 1.7;
     font-style: normal;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-cont:hover,
@@ -537,6 +582,7 @@ address {
     height: 44px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-list:hover,
@@ -582,6 +628,7 @@ address {
     cursor: pointer;
     padding: 6px 22px;
     border: 1px solid transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn button:hover,
@@ -605,6 +652,7 @@ address {
 
 
 .cards-product {
+
     width: 370px;
     margin-right: 30px;
     margin-bottom: 30px;
@@ -621,10 +669,13 @@ address {
 }
 
 .card-container {
+
     width: 370px;
     background: #FFFFFF;
     text-decoration: none;
     display: block;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 
 }
 
@@ -632,6 +683,7 @@ address {
 .card-container:focus {
     box-sizing: border-box;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+  
 }
 
 .botton-part-cards {
@@ -653,5 +705,34 @@ address {
     flex-wrap: wrap;
 }
 
+.overlay {
+    position: relative;
+    width: 370px;
+}
+.text-overlay-card::after {
+    content: "Технокряк это современная площадка распространения коронавируса. Компании используют эту платформу для цифрового шпионажа и атак на защищённые сервера конкурентов.";
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    padding: 63px 24px;
+
+    
+    transform: translateY(100%);
+    transition: transform 250ms ease;
+    
+    background: rgba(33, 150, 243, 0.9);
+    font-size: 18px;
+    line-height: 1.56;
+    color: #FFFFFF;
+    overflow: hidden
+
+
+}
+
+.text-overlay-card:hover::after
+{
+    transform: translateY(0);
+
+}
 /*=============   END    ============*/
 /*=============portfolio============*/
