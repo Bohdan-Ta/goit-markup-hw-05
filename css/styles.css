@@ -683,7 +683,7 @@ address {
 .card-container:focus {
     box-sizing: border-box;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-  
+
 }
 
 .botton-part-cards {
@@ -707,32 +707,98 @@ address {
 
 .overlay {
     position: relative;
-    width: 370px;
+    overflow: hidden
 }
-.text-overlay-card::after {
-    content: "Технокряк это современная площадка распространения коронавируса. Компании используют эту платформу для цифрового шпионажа и атак на защищённые сервера конкурентов.";
+
+.text-overlay-card {
+    content: "";
     position: absolute;
-    width: 100%;
+
     top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: 100%;
     padding: 63px 24px;
 
-    
-    transform: translateY(100%);
+    transform: translateY(101%);
     transition: transform 250ms ease;
-    
+
     background: rgba(33, 150, 243, 0.9);
     font-size: 18px;
     line-height: 1.56;
     color: #FFFFFF;
-    overflow: hidden
+    overflow: auto;
 
+}
+
+.card-container:hover .text-overlay-card,
+.card-container:focus .text-overlay-card {
+    transform: translateY(0%);
 
 }
 
-.text-overlay-card:hover::after
-{
-    transform: translateY(0);
-
-}
 /*=============   END    ============*/
 /*=============portfolio============*/
+
+/*=============MODAL WINDOW===========*/
+.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-200px);
+    transition: opacity 1000ms ease, visibility 1000ms ease;
+}
+
+.modal-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 528px;
+    min-height: 581px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    background-color: var(--background-color);
+
+}
+
+.closed {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    padding: 0px;
+    background: var(--background-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    cursor: pointer;
+
+}
+
+.botton-closed {
+    content: "";
+    width: 11px;
+    height: 11px;
+    fill: #000000;
+
+}
+/*=============END MODAL WINDOW===========*/
