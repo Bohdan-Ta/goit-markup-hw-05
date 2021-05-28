@@ -756,8 +756,9 @@ address {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(-200px);
-    transition: opacity 1000ms ease, visibility 1000ms ease;
+    transition: opacity 250ms ease, visibility 1000ms ease;
+    transform: scale(-0.7, 0.7);
+
 }
 
 .modal-window {
@@ -801,4 +802,5 @@ address {
     fill: #000000;
 
 }
+
 /*=============END MODAL WINDOW===========*/
